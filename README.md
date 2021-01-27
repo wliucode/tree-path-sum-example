@@ -41,6 +41,20 @@
         4.1 Line of code: Solution 1 (BFS) - 88 lines
         4.1 Line of code: Solution 2 (DFS) - 24 lines
 
-# Test case
+# Test cases
 
     Write test case through JUnit.
+    
+    Example 2:
+    Input: [1,2,3,4,5]
+          1
+         / \
+        2   3
+       / \
+      4   5
+    Output: 262
+    Explanation:
+    The root-to-leaf path 1->2->4 represents the number 124.
+    The root-to-leaf path 1->2->5 represents the number 125.
+    The root-to-leaf path 1->3 represents the number 13.
+    Therefore, sum = 124 + 125 + 13 = 262.  
