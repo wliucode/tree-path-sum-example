@@ -25,21 +25,33 @@
 # Solution
 
     1. Pass the root of binary tree by reference for the calling method
-    2. Solution 1: BFS (Breadth-first search) traversal
+    2. Solution 1 (Original Version): BFS (Breadth-first search) traversal
         2.1 Find all the paths from root to leaf in binary tree using iterative approach (BFS)
         2.2 Two main queues are created, one for maintaining each node, another one for maintaining the Paths
         2.3 And then calculate sum of all the numbers which are formed by each path from root to leaf
         2.4 The sum will be updated as sum*10 plus node's data when we iterate each path
         2.5 Time Complexity : O(n) - where n is the number of nodes in the given binary tree.
-        2.6 Space Complexity: O(n) - where n is the number of nodes in the given binary tree.           
+        2.6 Space Complexity: O(n) - where n is the number of nodes in the given binary tree.
+    3. Solution 1 (**Revised Version)**: BFS (Breadth-first search) traversal
+        3.1 First of all, we create a new class (NodeAndSum) which wrap current node of tree and sum as a whole. 
+                initially current sum is 0 since no node is above root node.
+        3.2 We create a queue (FIFO) for BFS and enqueue the instance of wrapper class (NodeAndSum)
+        3.3 we dequeue an instance of wrapper class, calculate next sum as (current sum)*10 plus node's data
+        3.4 if current node is leaf, add next sum to total sum
+        3.5 if current node has left child, put new instance of wrapper class 
+                which contain left child fo current node and next sum
+        3.6. if current node has right child, put new instance of wrapper class
+                which contain right child as current node and next sum
+        3.7 Repeat steps from 3.3 to 3.6 till queue is empty, then return total sum.                     
     3. Solution 2: DFS (Depth-first search) traversal
         3.1 Find all the paths from root to leaf in binary tree using recursive approach (DFS)
         3.2 Main method will recursively call treePathsSumDFSUtil() by passing current node and value
         3.3 Once current node is a leaf node, the val will be updated as val*10 plus node's data
         3.4 Time Complexity : O(n) - where n is the number of nodes in the given binary tree.  
-    4. Solution 1 (BFS approcah) vs. Solution 2 (DFS aproach)
-        4.1 Line of code: Solution 1 (BFS) - 88 lines
-        4.1 Line of code: Solution 2 (DFS) - 24 lines
+    4. Total line of code comparison Solution 1 (BFS approcah) vs. Solution 2 (DFS aproach)
+        4.1 Solution 1 (Original Version) (BFS approach) - 88 lines
+        4.2 Solution 1 (**Revised** Version) (BFS approach) - 34 lines        
+        4.3 Solution 2 (DFS approach) - 24 lines
 
 # Test cases
 
